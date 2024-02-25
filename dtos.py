@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, ConfigDict
 
 
 class STaskAdd(BaseModel):
@@ -16,6 +16,7 @@ class STask(STaskAdd):
     #     if value:
     #         return str(value)
     #     return value
+    model_config = ConfigDict(from_attributes=True)
 
 
 class STaskId(BaseModel):
